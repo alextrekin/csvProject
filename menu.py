@@ -15,6 +15,7 @@ class checker():
                 Selected = int(input("Введите цифру нужного вам пункта:"))
                 if Selected not in range(1,5):
                     print("Введите нужную цифру")
+                else:
                     cycle = False
         except ValueError:
             print("Введите цифру")
