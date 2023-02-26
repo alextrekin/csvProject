@@ -19,11 +19,11 @@ class checker():
                 if Selected in range(1, 6):
                     if Selected == 1:
                         lines = int(input("Введите строку для вывода:"))
-                        csv_work.crud_master.Reader(self, Filename, lines)
+                        csv_work.crud_master.Reader_line(self, Filename, lines)
                         input()
                     elif Selected == 2:
                         rows = int(input("Введите колонку для вывода:"))
-                        csv_work.crud_master.Reader(Filename, rows)
+                        csv_work.crud_master.Reader_row(self, Filename, rows)
                     elif Selected == 3:
                         print("poka delayu")
                     elif Selected == 4:

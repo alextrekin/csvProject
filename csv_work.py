@@ -1,17 +1,23 @@
-import csv, pandas
+import csv
 class crud_master():
-    def Reader(self, Filename, lines):
-        with open(Filename) as csv_file:
-            csv_reader = csv.reader(csv_file, delimiter=';')
-            line_count = lines
-            for row in csv_reader:
-                if line_count == 0:
-                    print(f'Column names are {", ".join(row)}')
-                    line_count += 1
-                else:
-                    print(row)
-                    line_count += 1
-            print(f'Processed {line_count} lines.')
+    def Reader_line(self, Filename, lines):
+        with open(Filename, 'r') as csv_file:
+            reader = csv.reader(csv_file, delimiter=";")
+            line = []
+            lines -=1
+            for i in reader:
+                line.append(i)
+            print(line[lines])
+
+    def Reader_row(self, Filename, rows):
+        with open(Filename, 'r') as csv_file:
+            reader = csv.reader(csv_file, delimiter=";")
+            row = []
+            rows -=1
+            for i in reader:
+                row.append(i)
+            print(row[rows])
+
 class crud(crud_master):
 
     def __init__(self):
