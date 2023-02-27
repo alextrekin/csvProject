@@ -25,8 +25,8 @@ class checker():
                         rows = int(input("Введите колонку для вывода:"))
                         csv_work.crud_master.Reader_row(self, Filename, rows)
                     elif Selected == 3:
-                        print("poka delayu")
-                    elif Selected == 4:
+                        csv_work.crud_master.Reader_row(self, Filename, search_item, change_item )
+                    elif Selected == 4:# делаю сейчас поиск
                         print("poka delayu")
                     elif Selected == 5:
                         print("Ну и иди нахуй")
