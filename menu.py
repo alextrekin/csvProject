@@ -1,9 +1,19 @@
-import csv_work, os
+import csv_work
+import os
 class checker():
+
+    def clear (self): # метод для проверки операционной системы и дальнейшей очистки экрана
+    # for windows
+        if os.name == 'nt':
+            os.system('cls')
+    # for mac and linux(here, os.name is 'posix')
+        else:
+            os.system('clear')
+
 
     def __init__(self, Filename):
         liner = "Выберите строку"
-        collumner = "Введите столбец"
+        collumner = "Выберите столбец"
         searcher = "Найти значение"
         settinger = "Заменить значение"
         prog_exit = "Выход из программы"
@@ -11,7 +21,7 @@ class checker():
 
         cycle = True
         while cycle is True:
-            os.system('cls||clear')
+            checker.clear(None)
             for Item in variateble.items():
                 print(Item, end="\n")
             try:
@@ -32,12 +42,6 @@ class checker():
                         print("Ну и иди нахуй")
                         cycle = False
                 else:
-                    print("Ввкдите нужную цифру")
+                    print("Введите нужную цифру")
             except ValueError:
                 print("Введите цифру")
-
-
-
-    def __str__(self):
-        print("m2")
-

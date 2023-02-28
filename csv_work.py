@@ -1,5 +1,4 @@
 import csv
-import pandas
 class crud_master():
     def Reader_line(self, Filename, lines):
         with open(Filename, 'r') as csv_file:
