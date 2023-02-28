@@ -66,6 +66,6 @@ class crud_master():
                         line.append(elem)
                 new_file.append(line)
         with open(Filename, 'w') as csv_file:
-            writer = csv.writer(csv_file, delimiter=";",newline ="\n")
+            writer = csv.writer(csv_file, delimiter=";", lineterminator="\n")
             for i in new_file:
                 writer.writerow(i)
