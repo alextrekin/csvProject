@@ -1,4 +1,8 @@
 import csv
+
+import pandas
+
+
 class crud_master():
     def Reader_line(self, Filename, lines):
         with open(Filename, 'r') as csv_file:
@@ -12,12 +16,8 @@ class crud_master():
     def Reader_row(self, Filename, rows):
         with open(Filename, 'r') as csv_file:
             reader = csv.reader(csv_file, delimiter=";")
-            line = {} # создаем копию словаря для обхода
             rows -=1 #  уменьшаем на 1 потому что первый элемент ключа 0
-            j=0 # переменная для прохода по ключу
             for i in reader:# проходим весь словарь чтобы получить самое большое значение
-                line[j] = [i]
-                j+= 1
                 count = 0
                 for elem in i:# делаем обход для вывода колонки
                     if (count) == rows:
@@ -27,13 +27,10 @@ class crud_master():
     def search (self, Filename, search_item):
         with open(Filename, 'r') as csv_file:
             reader = csv.reader(csv_file, delimiter=";")
-            line = {}  # создаем копию словаря для обхода
             lines = 0
-            j = 0  # переменная для прохода по ключу
             count = 0 #  сколко было найдено совпадений
             search_pos = [] #для того чтобы потом написать где нашел
             for i in reader:  # проходим весь словарь чтобы получить самое большое значение
-                line[j] = [i]
                 lines += 1
                 rows = 0 #  считаем номер строки и столбца
                 for elem in i:# делаем обход для вывода колонки
@@ -51,5 +48,24 @@ class crud_master():
                         i =False
             else:
                 print('Значение не найдено')
+    def change(self, Filename, search_item, change_item):
+        with open(Filename, 'r') as csv_file:
+            reader = csv.reader(csv_file, delimiter=";")
 
-
+            j = 0  # переменная для прохода по ключу
+            count = 0  # сколко было найдено совпадений
+            new_file = []
+            search_pos = []  # для того чтобы потом написать где нашел
+            for i in reader:  # проходим весь словарь чтобы получить самое большое значение
+                line = []  # создаем копию словаря для обхода построчно
+                for elem in i:  # делаем обход для вывода колонки
+                    if (search_item) == elem:
+                        line.append(change_item)
+                        count += 1
+                    else:
+                        line.append(elem)
+                new_file.append(line)
+        with open(Filename, 'w') as csv_file:
+            writer = csv.writer(csv_file, delimiter=";",newline ="\n")
+            for i in new_file:
+                writer.writerow(i)

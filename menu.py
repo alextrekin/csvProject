@@ -26,22 +26,25 @@ class checker():
             for Item in variateble.items():
                 print(Item, end="\n")
             try:
-                Selected = int(input("Введите цифру нужного вам пункта:"))
+                Selected = int(input("Введите цифру нужного вам пункта: "))
                 if Selected in range(1, 6):
                     if Selected == 1:# вывод строки
-                        lines = int(input("Введите строку для вывода:"))
+                        lines = int(input("Введите строку для вывода: "))
                         csv_work.crud_master.Reader_line(self, Filename, lines)
                         input("Нажмите для продолжения...")
                     elif Selected == 2: # Вывод столбца
-                        rows = int(input("Введите колонку для вывода:"))
+                        rows = int(input("Введите колонку для вывода: "))
                         csv_work.crud_master.Reader_row(self, Filename, rows)
                         input("Нажмите для продолжения...")
                     elif Selected == 3: # поиск
-                        search_item = input("Введите что найти:")
+                        search_item = input("Введите что найти: ")
                         csv_work.crud_master.search(self, Filename, search_item)
                         input("Нажмите для продолжения...")
                     elif Selected == 4:# замена
-                        print("poka delayu")
+                        search_item = input("Введите что заменить: ")
+                        change_item = input("На что меняем: ")
+                        csv_work.crud_master.change(self, Filename, search_item, change_item)
+                        input("Нажмите для продолжения...")
                     elif Selected == 5: # выход из программы
                         print("Ну и иди нахуй")
                         cycle = False
